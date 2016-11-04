@@ -1,0 +1,242 @@
+package core;
+
+import java.awt.Font;
+import java.util.ArrayList;
+
+import te.TeluguWordProcessor;
+import core.Language.LANGUAGE;
+import core.history.PuzzleCollection;
+import core.history.PuzzleGeneratorConfig;
+import core.history.PuzzleHistoryCollection;
+import core.words.BigWordCollection;
+
+/**
+ * This class provides the configurations (both system and GUI)
+ * to accommodate future expansions and modularity
+ * 
+ * @author srj
+ *
+ */
+public class Config {
+	
+	public enum USER_MODE {USER, ADMIN}
+	public static final USER_MODE MODE = USER_MODE.USER;  //Admin or User
+		
+	/**************************** GUI final Configurations ***********************************************************/
+	
+	private static String gameMode = (MODE == USER_MODE.USER ? "User Mode": "Admin Mode");
+	public static final String APP_TITLE = "Fillin Puzzles - Frogware (" + gameMode +")";
+	public static final Font LABELFONT = new Font("SansSerif", Font.BOLD, 14); // Label font for GUI
+	public static final Font ENGLISHFONT = new Font("SansSerif", Font.PLAIN, 14); // Default font for GUI
+	public static final Font TELUGUFONT = new Font("Gidugu", Font.PLAIN, 18);
+		
+//	public static String INPUT_FILE = System.getProperty("user.home") + "\\ICS499\\te\\input_words.txt";
+	
+	public static final String CONFIRM_TITLE = "Confirm Changes";
+	public static final String CONFIRM_MSG = "Please confirm changes.";
+	public static final String SAVE_PUZZLE_MSG = "Saving will add the puzzle to repository but no further"
+			+ "\nchanges will be possible. Please confirm save.";
+	 
+	public static final String GAMECOMPLETEMSG = "Congratulations!"
+			+ "\nWould you like to play the next game?";	
+	public static final String GAMEINCOMPLETEMSG = "The puzzle is incomplete!";
+	
+	/**************************** Configuration Tab DEFAULT Settings *********************************************************/
+	public static final String ENGLISH = "English";
+	public static final String TELUGU = "Telugu";
+	public static final String[] LANGUAGES = { ENGLISH, TELUGU }; // Application language options
+	
+	public static final int DEFAULT_TIME = 60;		
+	public static final int MIN_ROWS = 10;
+	public static final int MIN_TIMEOUT = 10; // Puzzle generation time limit (seconds)	
+	public static final int MIN_NO_PUZZLES = 1; // Default number of puzzles to generate	
+	public static final int MIN_GROUPS = 1; //Number of groups that can be in the grid	
+	public static final int MIN_LENGTH = 3;	
+	public static final int MIN_STRENGTH = 0;	
+	public static final int MAX_ROWS = 200;
+	public static final int MAX_TIMEOUT = 360; // Puzzle generation time limit (seconds)	
+	public static final int MAX_NO_PUZZLES = 5; // Default number of puzzles to generate	
+	public static final int MAX_GROUPS = 2; //Number of groups that can be in the grid
+//	public static final int MAX_STRENGTH = 20;		
+	public static final boolean ANSWER_KEY = false; // Default generate HTML answer key
+	
+	
+	// For Reading the input file
+	public static final String DELIMETER = "\\|";
+	public static final int MAX_ITEMS_PER_LINE = 7;
+	
+	public static String defaultPuzzleFile = "puzzle.txt";
+	
+	public static final String cellSpacer = "+";
+	public static final String DICTIONARY_NAME = "/core/resources/input_words.txt";
+	public static final String TELUGUFONT_FILE = "/core/resources/Gidugu.ttf";
+	public static final String HTML_DIRECTORY = System.getProperty("user.home") + "\\";
+	private static final String PROGRESSFILE_NAME = System.getProperty("user.home") +"/puzzle_history.txt";
+		
+	/**************************** Non-Final Configurations ***********************************************************/
+	
+//	private static String app_dir;	
+	private static PuzzleGeneratorConfig current_config;	
+	private static BigWordCollection gameCollection;
+	private static ArrayList<ArrayList<String>> wordDictionary = new ArrayList<ArrayList<String>>();
+	private static PuzzleCollection puzzleCollection;
+	private static PuzzleHistoryCollection puzzleHistoryCollection;
+	
+	private static String appPath = new String();	
+	private static Language selected_language = new Language(LANGUAGE.ENGLISH);	
+	public static int MAX_WORDS = 5000;
+	
+	private static boolean helpIsShown = false;	
+//	private static String game_language = new String("All");
+	
+	/*****************************************************************************************************************/
+
+	/**
+	 * Gets the current PuzzleGeneratorConfig.
+	 * @return PuzzleGeneratorConfig
+	 */
+	public static PuzzleGeneratorConfig getCurrent_config() {
+		return current_config;
+	}
+
+	/**
+	 * Set the current PuzzleGeneratorConfig
+	 * @param current_config variable received to be set for the entire game environment for puzzle generation.
+	 */
+	public static void setCurrent_config(PuzzleGeneratorConfig current_config) {
+		Config.current_config = current_config;
+	}
+
+	/**
+	 * Gets the BigWordCollection from the input resource file(s).
+	 * @return
+	 */
+	public static BigWordCollection getGameCollection() {
+		return gameCollection;
+	}
+	
+	/**
+	 * Sets a collection of BigWords used by the puzzle generator.
+	 * @param gameCollection a collection of BigWords.
+	 */
+	public static void setGameCollection(BigWordCollection gameCollection) {
+		Config.gameCollection = gameCollection;
+		setDictionaryWords();
+	}
+	
+	/**
+	 * @return puzzle generator language object.
+	 */
+	public static Language getSelected_Language() {
+		return selected_language;
+	}
+	
+	/**
+	 * Set puzzle generator language with a specific language object.
+	 * @param language
+	 */
+	public static void setSelected_Language(Language language) {
+		selected_language = language;
+	}
+	
+	/**
+	 * Set puzzle generator language via an index value. Upon parsing of the index a language is selected, generated and set.
+	 * @param index, an integer.
+	 */
+	public static void setSelected_Language(int index) {		
+		
+		selected_language = new Language(LANGUAGE.ENGLISH);
+		if(index == 1)
+			selected_language = new Language(LANGUAGE.TELUGU);
+	}	
+	
+	/**
+	 * @return the game programe file name.
+	 */
+	public static String getProgressFile_Name() {
+		return PROGRESSFILE_NAME;
+	}
+	
+	/**
+	 * @return the wordDictionary
+	 */
+	public static ArrayList<ArrayList<String>> getWordDictionary() {
+		return wordDictionary;
+	}
+
+	/**
+	 * @return the puzzleCollection
+	 */
+	public static PuzzleCollection getPuzzleCollection() {
+		return puzzleCollection;
+	}
+
+	/**
+	 * @param puzzleCollection the puzzleCollection to set
+	 */
+	public static void setPuzzleCollection(PuzzleCollection puzzleCollection) {
+		Config.puzzleCollection = puzzleCollection;		
+	}
+	
+	/**
+	 * @return the puzzleCollection
+	 */
+	public static PuzzleHistoryCollection getPuzzleHistoryCollection() {
+		return puzzleHistoryCollection;
+	}
+
+	/**
+	 * @param puzzleCollection the puzzleCollection to set
+	 */
+	public static void setPuzzleHistoryCollection(PuzzleHistoryCollection puzzleHistoryCollection) {
+		Config.puzzleHistoryCollection = puzzleHistoryCollection;		
+	}
+	
+	
+	/**
+	 * Set Dictionary consisting of an ArrayList<String>. The Dictionary words consist of Logical characters.
+	 */
+	private static void setDictionaryWords() {
+		wordDictionary = new ArrayList<ArrayList<String>>();
+		BWCIterator bwci = new BWCIterator(gameCollection);
+		TeluguWordProcessor wp;
+		String str;		
+		do {
+			str = bwci.getCurrent().getEnglish();
+			if(selected_language.getName().equals(TELUGU))
+				str = bwci.getCurrent().getTelugu();
+			wp = new TeluguWordProcessor(str);
+			wordDictionary.add(wp.getLogicalChars());
+			bwci.next();
+		} while (bwci.hasNext());
+	}
+
+	/**
+	 * @return the appPath
+	 */
+	public static String getAppPath() {
+		return appPath;
+	}
+
+	/**
+	 * @param appPath the appPath to set
+	 */
+	public static void setAppPath(String appPath) {
+		Config.appPath = appPath;
+	}
+	
+	/**
+	 * @return the helpIsShown
+	 */
+	public static boolean isHelpIsShown() {
+		return helpIsShown;
+	}
+
+	/**
+	 * @param helpIsShown the helpIsShown to set
+	 */
+	public static void setHelpIsShown(boolean helpIsShown) {
+		Config.helpIsShown = helpIsShown;
+	}
+	
+}

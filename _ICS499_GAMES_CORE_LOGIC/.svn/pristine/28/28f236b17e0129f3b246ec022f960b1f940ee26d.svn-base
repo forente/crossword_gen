@@ -1,0 +1,392 @@
+package Fillin;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+
+import core.*;
+import core.history.Puzzle;
+import core.history.PuzzleCollection;
+import core.HtmlCreator;
+
+import java.io.*;
+import java.awt.*;
+
+import javax.swing.JButton;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+import javax.swing.*;
+
+import java.awt.GridLayout;
+
+import javax.swing.border.*;
+
+import java.awt.Color;
+import java.util.ArrayList;
+
+import te.TeluguWordProcessor;
+
+import com.gg.dialogs.ExceptionDialog;
+import com.gg.slider.SideBar;
+import com.gg.slider.SidebarSection;
+import com.gg.slider.SideBar.SideBarMode;
+
+/**
+ * A puzzle preview panel used for one or more preview tabs. 
+ *
+ */
+public class PreviewPanel extends JPanel {
+
+	private static final long serialVersionUID = 1L;
+	private Puzzle puzzle;
+	private int rows = 10;
+	private int columns = 10;
+	private JTextField txtTitle;
+	private String titleValue = new String();
+	private String[][] puzzleGrid;
+	private Font gridFont;
+	private static ArrayList<String> words;
+	private GameGui parent;
+	private static Language language;	
+	private static SideBar sideBar;
+	private boolean saved = false;
+	
+	/**
+	 * Create the panel.
+	 */
+	public PreviewPanel(Puzzle puz, GameGui parent) {
+		puzzle = puz;
+		rows = puzzle.getGridHeight();
+		columns = puzzle.getGridWidth(); 
+		titleValue = puzzle.getTitle();
+		puzzleGrid = puzzle.getPuzzleGrid();
+		gridFont = puzzle.getLanguage().getFont();
+		words = puzzle.getWordList();
+		language = puzzle.getLanguage();
+		this.parent = parent;
+		
+		initComponents();		
+	}
+
+	/**
+	 * Initializes the visual components and sets default values.
+	 */
+	private void initComponents() {
+		setLayout(new BorderLayout(0, 0));
+		String tooltipValue = new String();
+						
+		JPanel displayPanel = new JPanel();		
+		GridBagLayout gbl_displayPanel = new GridBagLayout();
+		gbl_displayPanel.columnWidths = new int[]{25, 50, 0, 0, 0, 200, 0, 25, 0};
+		gbl_displayPanel.rowHeights = new int[]{25, 25, 0, 0, 0, 0, 0, 0, 0};
+		gbl_displayPanel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_displayPanel.rowWeights = new double[]{0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		displayPanel.setLayout(gbl_displayPanel);
+		
+		JLabel label = new JLabel("Title:");
+		GridBagConstraints gbc_label = new GridBagConstraints();
+		gbc_label.insets = new Insets(0, 0, 5, 5);
+		gbc_label.gridx = 1;
+		gbc_label.gridy = 1;
+		displayPanel.add(label, gbc_label);
+		
+		txtTitle = new JTextField(150);
+		txtTitle.setText(titleValue);		
+		txtTitle.setEnabled(false);
+		GridBagConstraints gbc_txtTitle = new GridBagConstraints();
+		gbc_txtTitle.gridwidth = 4;
+		gbc_txtTitle.insets = new Insets(0, 0, 5, 5);
+		gbc_txtTitle.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtTitle.gridx = 2;
+		gbc_txtTitle.gridy = 1;
+		displayPanel.add(txtTitle, gbc_txtTitle);
+		txtTitle.setColumns(10);
+		
+		
+		tooltipValue = new String("<b>Rename</b>"
+				+ "<br>Gives the administrator the option to assign a title or them to the puzzle.");
+		
+		JButton btnRename = new JButton("Rename");
+		btnRename.setToolTipText("<html><p width=\"300\">" +tooltipValue+"</p></html>");
+		btnRename.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(txtTitle.isEnabled()) {
+					txtTitle.setEnabled(false);
+					btnRename.setText("Rename");
+					puzzle.setTitle(txtTitle.getText());
+				} else {
+					txtTitle.setEnabled(true);
+					btnRename.setText("Save");
+				}
+			}
+		});
+		GridBagConstraints gbc_btnRename = new GridBagConstraints();
+		gbc_btnRename.insets = new Insets(0, 0, 5, 5);
+		gbc_btnRename.gridx = 6;
+		gbc_btnRename.gridy = 1;
+		displayPanel.add(btnRename, gbc_btnRename);
+		
+		sideBar = new SideBar(SideBarMode.TOP_LEVEL, false, 200, true);
+		populateSideBar();
+		
+		GridBagConstraints gbc_list = new GridBagConstraints();
+		gbc_list.gridheight = 3;
+		gbc_list.gridwidth = 2;
+		gbc_list.insets = new Insets(0, 0, 0, 5);
+		gbc_list.fill = GridBagConstraints.VERTICAL;
+		gbc_list.gridx = 1;
+		gbc_list.gridy = 2;
+		displayPanel.add(sideBar, gbc_list);
+		
+		JPanel pnlGrid = new JPanel();
+		pnlGrid.setBackground(Color.BLACK);
+		pnlGrid.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		
+		GridBagConstraints gbc_pnlGrid = new GridBagConstraints();
+		gbc_pnlGrid.gridheight = 3;
+		gbc_pnlGrid.gridwidth = 3;
+		gbc_pnlGrid.insets = new Insets(0, 0, 0, 5);
+		gbc_pnlGrid.fill = GridBagConstraints.BOTH;
+		gbc_pnlGrid.gridx = 4;
+		gbc_pnlGrid.gridy = 2;
+		displayPanel.add(pnlGrid, gbc_pnlGrid);
+		pnlGrid.setLayout(new GridLayout(rows,columns, 0, 0));
+		
+		Border margin = new EmptyBorder(10,10,10,10);
+	    Border colorBorder = new LineBorder(Color.WHITE,1);
+	    Border border = BorderFactory.createCompoundBorder(colorBorder, margin);
+	    Dimension size = new Dimension(35,35);
+		
+	    for(int x = 0; x < rows; x++) {
+			for(int y = 0; y < columns; y++) {
+				if(puzzleGrid[x][y].equals("+")) {
+					JLabel cell = new JLabel();
+					cell.setBackground(Color.BLACK);
+					cell.setBorder(border);
+					cell.setPreferredSize(size);
+					cell.setMinimumSize(size);
+					pnlGrid.add(cell);
+				}
+				else {
+					JTextField cell = new JTextField();
+					cell.setText(puzzleGrid[x][y]);
+					cell.setFont(gridFont);
+					cell.setEditable(false);					
+					cell.setBorder(border);
+					cell.setHorizontalAlignment(JTextField.CENTER);	
+					cell.setPreferredSize(size);
+					cell.setMinimumSize(size);
+					pnlGrid.add(cell);
+				}		
+			}
+		}
+	    
+	    JScrollPane scrollPane = new JScrollPane(displayPanel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+	    scrollPane.setBorder(null);
+	    add(scrollPane, BorderLayout.CENTER);
+	    
+	    JPanel btnPanel = new JPanel();
+		add(btnPanel, BorderLayout.SOUTH);
+		GridBagLayout gbl_btnPanel = new GridBagLayout();
+		gbl_btnPanel.columnWidths = new int[]{0, 85, 85, 85, 25, 0};
+		gbl_btnPanel.rowHeights = new int[] {40, 25};
+		gbl_btnPanel.columnWeights = new double[]{1.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_btnPanel.rowWeights = new double[]{0.0, 0.0};
+		btnPanel.setLayout(gbl_btnPanel);
+	    
+		tooltipValue = new String("<b>Save</b>"
+				+ "<br>Saves and commits a puzzle to the repository and no further changes are possible to make.");
+		
+		JButton btnSave = new JButton("Save");
+		btnSave.setToolTipText("<html><p width=\"300\">" +tooltipValue+"</p></html>");
+		btnSave.setFont(Config.ENGLISHFONT);
+		btnSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				txtTitle.setEnabled(false);
+				btnRename.setText("Rename");
+				puzzle.setTitle(txtTitle.getText());
+				if(isConfirmed()) {
+					PuzzleCollection pc = Config.getPuzzleCollection();
+					puzzle.setId(pc.getNewID());
+					pc.writePuzzle(puzzle);
+					Config.setPuzzleCollection(pc);
+					btnRename.setEnabled(false);
+					btnSave.setEnabled(false);
+					saved = true;
+				}
+			}
+		});
+		GridBagConstraints gbc_btnSave = new GridBagConstraints();
+		gbc_btnSave.fill = GridBagConstraints.BOTH;
+		gbc_btnSave.insets = new Insets(5, 0, 5, 5);
+		gbc_btnSave.gridx = 2;
+		gbc_btnSave.gridy = 0;
+		btnPanel.add(btnSave, gbc_btnSave);
+		
+		tooltipValue = new String("<b>Print</b>"
+				+ "<br>Saves the current puzzle and generates an HTML version with clues ready for printing.");
+		
+	    JButton btnPrint = new JButton("Print");
+	    btnPrint.setToolTipText("<html><p width=\"300\">" +tooltipValue+"</p></html>");
+	    btnPrint.setFont(Config.ENGLISHFONT);
+		btnPrint.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					if(!saved && isConfirmed()) {
+						PuzzleCollection pc = Config.getPuzzleCollection();
+						puzzle.setId(pc.getNewID());
+						pc.writePuzzle(puzzle);
+						Config.setPuzzleCollection(pc);
+						btnRename.setEnabled(false);
+						btnSave.setEnabled(false);
+						saved = true;
+					}
+					@SuppressWarnings("unused")
+					HtmlCreator html = new HtmlCreator(puzzle);					
+				} catch (IOException f) {
+					Component component = (Component) e.getSource();
+			        JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(component);
+					String msg = "An unhandled exception has occurred in your application. Click Email Error and "
+							+ "nothing will occur because we don't care.\nClick View Error to display a stack trace.";
+					ExceptionDialog ld = new ExceptionDialog(frame, "Unexpected System Error!", msg, f);
+					ld.setLocationRelativeTo(frame);
+					ld.setVisible(true);
+				}				
+			}
+		});
+		GridBagConstraints gbc_btnPrint = new GridBagConstraints();
+		gbc_btnPrint.fill = GridBagConstraints.BOTH;
+		gbc_btnPrint.insets = new Insets(5, 0, 5, 5);
+		gbc_btnPrint.gridx = 1;
+		gbc_btnPrint.gridy = 0;
+		btnPanel.add(btnPrint, gbc_btnPrint);
+				
+		tooltipValue = new String("<b>Play</b>"
+				+ "<br>Play the current puzzle as a player would.");
+		
+		JButton btnPlay = new JButton("Play");
+		btnPlay.setToolTipText("<html><p width=\"300\">" +tooltipValue+"</p></html>");
+		btnPlay.setFont(Config.ENGLISHFONT);
+		btnPlay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//assign puzzle to a play tab
+				txtTitle.setEnabled(false);
+				btnRename.setText("Rename");
+				puzzle.setTitle(txtTitle.getText());
+				PlayPanel playPanel = new PlayPanel(puzzle, parent, puzzle.getLanguage().getName());				
+				parent.createNewPlayTab(playPanel, puzzle.getId());
+			}
+		});
+		GridBagConstraints gbc_btnPlay = new GridBagConstraints();
+		gbc_btnPlay.fill = GridBagConstraints.BOTH;
+		gbc_btnPlay.insets = new Insets(5, 0, 5, 5);
+		gbc_btnPlay.gridx = 3;
+		gbc_btnPlay.gridy = 0;
+		btnPanel.add(btnPlay, gbc_btnPlay);
+	}
+	
+	
+	private boolean isConfirmed() {
+		boolean isOK = true;
+		JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(PreviewPanel.this);
+		int buttonSelected = JOptionPane.showConfirmDialog(frame, Config.SAVE_PUZZLE_MSG, "Save Puzzle", 
+				JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+		switch (buttonSelected) {
+		case JOptionPane.OK_OPTION:			
+			break;
+		default:
+			isOK = false;
+			break;
+		}
+		return isOK;
+	}
+	
+	/**
+	 * Creates the Outlook style sidebar with JListed which represents wordlists for the Fillin puzzle game.
+	 */
+	private static void populateSideBar() {
+		int maxWordLength = 0;
+		TeluguWordProcessor wp; 
+		DefaultListModel<String> model;		
+		
+		for(String word: words) {
+			wp = new TeluguWordProcessor(word);
+			if(wp.getLength() > maxWordLength)
+				maxWordLength = wp.getLength();
+		}
+		
+		for(int i = 3; i <= maxWordLength; i++) {
+			model = new DefaultListModel<String>();			
+			int index = 0;
+			for(String word: words) {
+				wp = new TeluguWordProcessor(word);				
+				if(wp.getLength() == i) {
+					model.add(index, wp.getWord());
+					index++;
+				}
+			}
+			
+			if(model.size() == 0)	//If the there are no words in the model then jump to the next loop iteration
+				continue;
+			
+			JList<String> list = new JList<String>(){
+				
+				private static final long serialVersionUID = 1L;
+
+				@Override
+				protected void paintComponent(Graphics g){
+					Color color1 = new Color(0xEDEFF2); //nimbus menu
+					Color color2 = new Color(0x73A4D1 ); //nimbusfocus
+					Graphics2D g2 = (Graphics2D)g.create();
+					g2.setPaint(
+						new GradientPaint(
+							new Point(0, 0), color1, 
+							new Point(0, getHeight()), color2.darker()
+							)				
+					);
+					
+					g2.fillRect(0, 0, getWidth(), getHeight());
+					g2.dispose();
+
+					super.paintComponent(g);
+				}
+			};
+			list.setModel(model);
+			list.setOpaque(false);			
+			list.setFont(language.getFont());
+			list.setCellRenderer(new DisabledItemListCellRenderer());
+			
+			SidebarSection ss = new SidebarSection(sideBar, i + " LETTERS (" + model.size() + " words)", list, null);
+			sideBar.addSection(ss);
+		}
+		
+	}
+	
+	/**
+	 * A class which extends the JLabel and implements List cell Renderer which is used to make the list cells transparent and non-selectable.
+	 * @author sean.ford
+	 *
+	 */
+	static class DisabledItemListCellRenderer extends JLabel implements ListCellRenderer<Object> {
+
+		private static final long serialVersionUID = 1L;
+
+		public DisabledItemListCellRenderer() {
+			setOpaque(false);
+		}
+
+		@Override
+		public Component getListCellRendererComponent(JList<?> list, Object value,
+				int index, boolean isSelected, boolean cellHasFocus) {
+			String txt = (String) value;
+			setText(txt);
+			setFont(language.getFont());
+			
+			return this;
+		}
+		
+	}
+	
+}

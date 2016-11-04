@@ -1,0 +1,235 @@
+﻿ID	d1	Topic	d1	Telugu	d1	English	d1	Clue	d1	Image	d1	Sound
+1	|	Animals_1	|	పిపిలికాహారి	|	aardvark	|	పిపిలికాహారి_క్లూ	|	aardvark.jpg	|	aardvark.wav
+2	|	Animals_1	|	మొసలి 	|	alligator	|	మొసలి_క్లూ	|	alligator.jpg	|	alligator.wav
+3	|	Animals_1	|	చీమ	|	ant	|	చీమ_క్లూ	|	ant.jpg	|	ant.wav
+4	|	Animals_1	|	తోక లేని కోతి	|	ape	|	తోక లేని కోతి_క్లూ	|	ape.jpg	|	ape.wav
+5	|	Animals_1	|	నఖ మృగము	|	armadillo	|	నఖ మృగము_క్లూ	|	armadillo.jpg	|	armadillo.wav
+6	|	Animals_1	|	గండు కోతి	|	baboon	|	గండు కోతి_క్లూ	|	baboon.jpg	|	baboon.wav
+7	|	Animals_1	|	చిన్న ఎలుగు 	|	badger	|	చిన్న ఎలుగు_క్లూ	|	badger.jpg	|	badger.wav
+8	|	Animals_1	|	పందికొక్కు 	|	badicoot	|	పందికొక్కు_క్లూ	|	badicoot.jpg	|	badicoot.wav
+9	|	Animals_1	|	గబ్బిలము 	|	bat	|	గబ్బిలము_క్లూ	|	bat.jpg	|	bat.wav
+10	|	Animals_1	|	ఎలుగుబంటి 	|	bear	|	ఎలుగుబంటి_క్లూ	|	bear.jpg	|	bear.wav
+11	|	Animals_1	|	నల్లి	|	bed bug	|	నల్లి_క్లూ	|	bed bug.jpg	|	bed bug.wav
+12	|	Animals_1	|	తేనెటీగ 	|	bee	|	తేనెటీగ_క్లూ	|	bee.jpg	|	bee.wav
+13	|	Animals_1	|	కుమ్మరి పురుగు 	|	beetle	|	కుమ్మరి పురుగు_క్లూ	|	beetle.jpg	|	beetle.wav
+14	|	Animals_1	|	ఎద్దు 	|	bison	|	ఎద్దు _క్లూ	|	bison.jpg	|	bison.wav
+15	|	Animals_1	|	నల్ల కొంగ	|	black necked stork	|	నల్ల కొంగ_క్లూ	|	black necked stork.jpg	|	black necked stork.wav
+16	|	Animals_1	|	కొండ చిలువ 	|	boa	|	కొండ చిలువ_క్లూ	|	boa.jpg	|	boa.wav
+17	|	Animals_1	|	లేడి 	|	buck	|	లేడి_క్లూ	|	buck.jpg	|	buck.wav
+18	|	Animals_1	|	గేదె & దున్న 	|	buffalo	|	గేదె & దున్న_క్లూ	|	buffalo.jpg	|	buffalo.wav
+19	|	Animals_1	|	నల్లి 	|	bug	|	నల్లి_క్లూ	|	bug.jpg	|	bug.wav
+20	|	Animals_1	|	పికిలి పిట్ట	|	bul bul	|	పికిలి పిట్ట_క్లూ	|	bul bul.jpg	|	bul bul.wav
+21	|	Animals_1	|	ఎద్దు 	|	bull	|	ఎద్దు_క్లూ	|	bull.jpg	|	bull.wav
+22	|	Animals_1	|	గిత్త 	|	bullock	|	గిత్త_క్లూ	|	bullock.jpg	|	bullock.wav
+23	|	Animals_1	|	తుమ్మెద	|	bumble bee	|	తుమ్మెద_క్లూ	|	bumble bee.jpg	|	bumble bee.wav
+24	|	Animals_1	|	సీతాకోక చిలుక 	|	butterfly	|	సీతాకోక చిలుక_క్లూ	|	butterfly.jpg	|	butterfly.wav
+25	|	Animals_1	|	ఆవు దూడ 	|	calf	|	ఆవు దూడ_క్లూ	|	calf.jpg	|	calf.wav
+26	|	Animals_1	|	ఒంటె 	|	camel	|	ఒంటె_క్లూ	|	camel.jpg	|	camel.wav
+27	|	Animals_1	|	పిల్లి 	|	cat	|	పిల్లి_క్లూ	|	cat.jpg	|	cat.wav
+28	|	Animals_1	|	గొంగళి పురుగు 	|	caterpillar	|	గొంగళి పురుగు_క్లూ	|	caterpillar.jpg	|	caterpillar.wav
+29	|	Animals_1	|	కాళ్ళ జెర్రి 	|	centipde	|	కాళ్ళ జెర్రి_క్లూ	|	centipde.jpg	|	centipde.wav
+30	|	Animals_1	|	ఊసరవెల్లి	|	chameleon	|	ఊసరవెల్లి_క్లూ	|	chameleon.jpg	|	chameleon.wav
+31	|	Animals_1	|	చిరుత పులి 	|	cheetah	|	చిరుత పులి_క్లూ	|	cheetah.jpg	|	cheetah.wav
+32	|	Animals_1	|	కోడిపిల్ల 	|	chick	|	కోడిపిల్ల_క్లూ	|	chick.jpg	|	chick.wav
+33	|	Animals_1	|	చింపాంజీ 	|	chimpanzee	|	చింపాంజీ_క్లూ	|	chimpanzee.jpg	|	chimpanzee.wav
+34	|	Animals_1	|	త్రాచు పాము 	|	cobra	|	త్రాచు పాము_క్లూ	|	cobra.jpg	|	cobra.wav
+35	|	Animals_1	|	కోడి పుంజు 	|	cock	|	కోడి పుంజు_క్లూ	|	cock.jpg	|	cock.wav
+36	|	Animals_1	|	 తెల్ల చిలుక	|	cockatoo	|	 తెల్ల చిలుక_క్లూ	|	cockatoo.jpg	|	cockatoo.wav
+37	|	Animals_1	|	బొద్దింక	|	cockroach	|	బొద్దింక_క్లూ	|	cockroach.jpg	|	cockroach.wav
+38	|	Animals_1	|	గుర్రపు పిల్ల 	|	colt	|	గుర్రపు పిల్ల_క్లూ	|	colt.jpg	|	colt.wav
+39	|	Animals_1	|	పులి 	|	cougar	|	పులి_క్లూ	|	cougar.jpg	|	cougar.wav
+40	|	Animals_1	|	ఆవు	|	cow	|	ఆవు_క్లూ	|	cow.jpg	|	cow.wav
+41	|	Animals_1	|	ఎండ్ర కాయ	|	crab	|	ఎండ్ర కాయ_క్లూ	|	crab.jpg	|	crab.wav
+42	|	Animals_1	|	కొంగ 	|	crane	|	కొంగ_క్లూ	|	crane.jpg	|	crane.wav
+43	|	Animals_1	|	చిమ్మట పురుగు 	|	cricket	|	చిమ్మట పురుగు_క్లూ	|	cricket.jpg	|	cricket.wav
+44	|	Animals_1	|	మొసలి 	|	crocodile	|	మొసలి_క్లూ	|	crocodile.jpg	|	crocodile.wav
+45	|	Animals_1	|	కాకి	|	crow	|	కాకి_క్లూ	|	crow.jpg	|	crow.wav
+46	|	Animals_1	|	సముద్రపు పక్షి 	|	cuckoo	|	సముద్రపు పక్షి_క్లూ	|	cuckoo.jpg	|	cuckoo.wav
+47	|	Animals_1	|	ఇసుకలో పుల్ల	|	cygnet	|	ఇసుకలో పుల్ల_క్లూ	|	cygnet.jpg	|	cygnet.wav
+48	|	Animals_1	|	తూనీగ	|	damsel fly  	|	తూనీగ_క్లూ	|	damsel fly  .jpg	|	damsel fly  .wav
+49	|	Animals_1	|	జింక 	|	deer	|	జింక_క్లూ	|	deer.jpg	|	deer.wav
+50	|	Animals_1	|	కుక్క 	|	dog	|	కుక్క_క్లూ	|	dog.jpg	|	dog.wav
+51	|	Animals_2	|	డాల్ఫిన్	|	dolphin	|	డాల్ఫిన్_క్లూ	|	dolphin.jpg	|	dolphin.wav
+52	|	Animals_2	|	గాడిద 	|	donkey	|	గాడిద_క్లూ	|	donkey.jpg	|	donkey.wav
+53	|	Animals_2	|	పావురము 	|	dove	|	పావురము_క్లూ	|	dove.jpg	|	dove.wav
+54	|	Animals_2	|	బాతు	|	duck	|	బాతు_క్లూ	|	duck.jpg	|	duck.wav
+55	|	Animals_2	|	బాతు పిల్ల 	|	duckling	|	బాతు పిల్ల_క్లూ	|	duckling.jpg	|	duckling.wav
+56	|	Animals_2	|	గ్రద్ద 	|	eagle	|	గ్రద్ద_క్లూ	|	eagle.jpg	|	eagle.wav
+57	|	Animals_2	|	గ్రద్ద పిల్ల 	|	eaglet	|	గ్రద్ద పిల్ల_క్లూ	|	eaglet.jpg	|	eaglet.wav
+58	|	Animals_2	|	వాన పాము 	|	earthworm	|	వాన పాము_క్లూ	|	earthworm.jpg	|	earthworm.wav
+59	|	Animals_2	|	మలుగు చేప 	|	eel	|	మలుగు చేప _క్లూ	|	eel.jpg	|	eel.wav
+60	|	Animals_2	|	ఏనుగు	|	elephant	|	ఏనుగు_క్లూ	|	elephant.jpg	|	elephant.wav
+61	|	Animals_2	|	 నిప్పు కోడి	|	emu	|	 నిప్పు కోడి_క్లూ	|	emu.jpg	|	emu.wav
+62	|	Animals_2	|	జింక పిల్ల 	|	fawn	|	జింక పిల్ల_క్లూ	|	fawn.jpg	|	fawn.wav
+63	|	Animals_2	|	చేప 	|	fish	|	చేప_క్లూ	|	fish.jpg	|	fish.wav
+64	|	Animals_2	|	పూ కొంగ	|	flamingo 	|	పూ కొంగ_క్లూ	|	flamingo .jpg	|	flamingo .wav
+65	|	Animals_2	|	మిన్నలి	|	flea	|	మిన్నలి_క్లూ	|	flea.jpg	|	flea.wav
+66	|	Animals_2	|	ఈగ	|	fly	|	ఈగ_క్లూ	|	fly.jpg	|	fly.wav
+67	|	Animals_2	|	నక్క 	|	fox	|	నక్క_క్లూ	|	fox.jpg	|	fox.wav
+68	|	Animals_2	|	లేడి	|	gazelle	|	లేడి_క్లూ	|	gazelle.jpg	|	gazelle.wav
+69	|	Animals_2	|	జిరాఫీ	|	giraffe	|	జిరాఫీ_క్లూ	|	giraffe.jpg	|	giraffe.wav
+70	|	Animals_2	|	మిణుగురు పురుగు 	|	glow worm	|	మిణుగురు పురుగు_క్లూ	|	glow worm.jpg	|	glow worm.wav
+71	|	Animals_2	|	మేక 	|	goat	|	మేక_క్లూ	|	goat.jpg	|	goat.wav
+72	|	Animals_2	|	బాతు 	|	goose	|	బాతు_క్లూ	|	goose.jpg	|	goose.wav
+73	|	Animals_2	|	బాతు పిల్ల	|	goosling	|	బాతు పిల్ల_క్లూ	|	goosling.jpg	|	goosling.wav
+74	|	Animals_2	|	మిడుత 	|	grasshopper	|	మిడుత _క్లూ	|	grasshopper.jpg	|	grasshopper.wav
+75	|	Animals_2	|	పసిరిక పాము	|	green snake	|	పసిరిక పాము_క్లూ	|	green snake.jpg	|	green snake.wav
+76	|	Animals_2	|	వేట కుక్క	|	greyhound	|	వేట కుక్క_క్లూ	|	greyhound.jpg	|	greyhound.wav
+77	|	Animals_2	|	చిన్న పంది 	|	guinea pig	|	చిన్న పంది_క్లూ	|	guinea pig.jpg	|	guinea pig.wav
+78	|	Animals_2	|	కుందేలు	|	hare	|	కుందేలు_క్లూ	|	hare.jpg	|	hare.wav
+79	|	Animals_2	|	డేగ	|	hawk	|	డేగ_క్లూ	|	hawk.jpg	|	hawk.wav
+80	|	Animals_2	|	కోడి పెట్ట	|	hen	|	కోడి పెట్ట_క్లూ	|	hen.jpg	|	hen.wav
+81	|	Animals_2	|	క్రౌంచ పక్షి	|	heron	|	క్రౌంచ పక్షి_క్లూ	|	heron.jpg	|	heron.wav
+82	|	Animals_2	|	నీటి ఏనుగు 	|	hippopotamus	|	నీటి ఏనుగు_క్లూ	|	hippopotamus.jpg	|	hippopotamus.wav
+83	|	Animals_2	|	గుర్రము 	|	horse	|	గుర్రము_క్లూ	|	horse.jpg	|	horse.wav
+84	|	Animals_2	|	 జోరీగ	|	horse fly	|	 జోరీగ_క్లూ	|	horse fly.jpg	|	horse fly.wav
+85	|	Animals_2	|	వేట కుక్క 	|	hound	|	వేట కుక్క_క్లూ	|	hound.jpg	|	hound.wav
+86	|	Animals_2	|	తేనె పిట్ట	|	humming bird 	|	తేనె పిట్ట_క్లూ	|	humming bird .jpg	|	humming bird .wav
+87	|	Animals_2	|	సివంగి 	|	hyena	|	సివంగి_క్లూ	|	hyena.jpg	|	hyena.wav
+88	|	Animals_2	|	తొండ 	|	iguaana	|	తొండ_క్లూ	|	iguaana.jpg	|	iguaana.wav
+89	|	Animals_2	|	ఉడుము	|	iguana 	|	ఉడుము_క్లూ	|	iguana .jpg	|	iguana .wav
+90	|	Animals_2	|	జెముడు కాకి	|	jack daw 	|	జెముడు కాకి_క్లూ	|	jack daw .jpg	|	jack daw .wav
+91	|	Animals_2	|	గుంట నక్క 	|	jackal	|	గుంట నక్క_క్లూ	|	jackal.jpg	|	jackal.wav
+92	|	Animals_2	|	పులి 	|	jaguar	|	పులి_క్లూ	|	jaguar.jpg	|	jaguar.wav
+93	|	Animals_2	|	కంగారు పిల్ల 	|	joey	|	కంగారు పిల్ల_క్లూ	|	joey.jpg	|	joey.wav
+94	|	Animals_2	|	కంగారు 	|	kangaroo	|	కంగారు_క్లూ	|	kangaroo.jpg	|	kangaroo.wav
+95	|	Animals_2	|	పిల్లి పిల్ల 	|	kitten	|	పిల్లి పిల్ల_క్లూ	|	kitten.jpg	|	kitten.wav
+96	|	Animals_2	|	ఆరుద్ర పురుగు	|	lady bird	|	ఆరుద్ర పురుగు_క్లూ	|	lady bird.jpg	|	lady bird.wav
+97	|	Animals_2	|	లేడీ బగ్	|	lady bug  	|	లేడీ బగ్_క్లూ	|	lady bug  .jpg	|	lady bug  .wav
+98	|	Animals_2	|	మేక పిల్ల 	|	lamb	|	మేక పిల్ల_క్లూ	|	lamb.jpg	|	lamb.wav
+99	|	Animals_2	|	భరద్వాజ పక్షి 	|	lark	|	భరద్వాజ పక్షి_క్లూ	|	lark.jpg	|	lark.wav
+100	|	Animals_2	|	భరత పక్షి	|	lark	|	భరత పక్షి_క్లూ	|	lark.jpg	|	lark.wav
+101	|	Animals_3	|	జలగ 	|	leech	|	జలగ_క్లూ	|	leech.jpg	|	leech.wav
+102	|	Animals_3	|	చిరుత పులి 	|	leopard	|	చిరుత పులి_క్లూ	|	leopard.jpg	|	leopard.wav
+103	|	Animals_3	|	పేలు 	|	lice	|	పేలు_క్లూ	|	lice.jpg	|	lice.wav
+104	|	Animals_3	|	సింహము 	|	lion	|	సింహము_క్లూ	|	lion.jpg	|	lion.wav
+105	|	Animals_3	|	కొండ ముచ్చు	|	lion monkey	|	కొండ ముచ్చు_క్లూ	|	lion monkey.jpg	|	lion monkey.wav
+106	|	Animals_3	|	ఆడ సింహము 	|	lioness	|	ఆడ సింహము_క్లూ	|	lioness.jpg	|	lioness.wav
+107	|	Animals_3	|	బల్లి 	|	lizard	|	బల్లి_క్లూ	|	lizard.jpg	|	lizard.wav
+108	|	Animals_3	|	మిడుత 	|	locust	|	మిడుత_క్లూ	|	locust.jpg	|	locust.wav
+109	|	Animals_3	|	వస పిట్ట	|	magpie	|	వస పిట్ట_క్లూ	|	magpie.jpg	|	magpie.wav
+110	|	Animals_3	|	ముంగిస 	|	mangoose	|	ముంగిస_క్లూ	|	mangoose.jpg	|	mangoose.wav
+111	|	Animals_3	|	ఆడ గుర్రము 	|	mare	|	ఆడ గుర్రము_క్లూ	|	mare.jpg	|	mare.wav
+112	|	Animals_3	|	కోతి	|	monkey	|	కోతి_క్లూ	|	monkey.jpg	|	monkey.wav
+113	|	Animals_3	|	దోమ 	|	mosquito	|	దోమ_క్లూ	|	mosquito.jpg	|	mosquito.wav
+114	|	Animals_3	|	కొండ గొర్రె 	|	mountain goat	|	కొండ గొర్రె_క్లూ	|	mountain goat.jpg	|	mountain goat.wav
+115	|	Animals_3	|	చిట్టెలుక 	|	mouse	|	చిట్టెలుక_క్లూ	|	mouse.jpg	|	mouse.wav
+116	|	Animals_3	|	కంచర గాడిద	|	mule	|	కంచర గాడిద_క్లూ	|	mule.jpg	|	mule.wav
+117	|	Animals_3	|	కస్తూరి మృగము	|	musk deer	|	కస్తూరి మృగము_క్లూ	|	musk deer.jpg	|	musk deer.wav
+118	|	Animals_3	|	అష్ట శిరోపాది	|	octopus	|	అష్ట శిరోపాది_క్లూ	|	octopus.jpg	|	octopus.wav
+119	|	Animals_3	|	గాలు కొంగ	|	openbill stork	|	గాలు కొంగ_క్లూ	|	openbill stork.jpg	|	openbill stork.wav
+120	|	Animals_3	|	నిప్పు కోడి 	|	ostrich	|	నిప్పు కోడి_క్లూ	|	ostrich.jpg	|	ostrich.wav
+121	|	Animals_3	|	గుడ్ల గూబ	|	owl	|	గుడ్ల గూబ_క్లూ	|	owl.jpg	|	owl.wav
+122	|	Animals_3	|	ఎద్దు 	|	ox	|	ఎద్దు_క్లూ	|	ox.jpg	|	ox.wav
+123	|	Animals_3	|	పాండా	|	panda	|	పాండా_క్లూ	|	panda.jpg	|	panda.wav
+124	|	Animals_3	|	చిరుత పులి 	|	panther	|	చిరుత పులి_క్లూ	|	panther.jpg	|	panther.wav
+125	|	Animals_3	|	రామ చిలుక 	|	parrot	|	రామ చిలుక_క్లూ	|	parrot.jpg	|	parrot.wav
+126	|	Animals_3	|	కౌజు పిట్ట	|	partridge	|	కౌజు పిట్ట_క్లూ	|	partridge.jpg	|	partridge.wav
+127	|	Animals_3	|	కౌజు పిట్ట 	|	patridge	|	కౌజు పిట్ట_క్లూ	|	patridge.jpg	|	patridge.wav
+128	|	Animals_3	|	నెమలి 	|	peacock	|	నెమలి_క్లూ	|	peacock.jpg	|	peacock.wav
+129	|	Animals_3	|	 గూడ కొంగ	|	pelican 	|	 గూడ కొంగ_క్లూ	|	pelican .jpg	|	pelican .wav
+130	|	Animals_3	|	పె౦గ్విను	|	penguin	|	పె౦గ్విను_క్లూ	|	penguin.jpg	|	penguin.wav
+131	|	Animals_3	|	తీతువు పిట్ట	|	pewit	|	తీతువు పిట్ట_క్లూ	|	pewit.jpg	|	pewit.wav
+132	|	Animals_3	|	పావురము 	|	pigeon	|	పావురము_క్లూ	|	pigeon.jpg	|	pigeon.wav
+133	|	Animals_3	|	పంది  పిల్ల 	|	piglet	|	పంది  పిల్ల_క్లూ	|	piglet.jpg	|	piglet.wav
+134	|	Animals_3	|	చిన్న గుర్రము 	|	pony	|	చిన్న గుర్రము_క్లూ	|	pony.jpg	|	pony.wav
+135	|	Animals_3	|	ముళ్ళ పంది	|	porcupine	|	ముళ్ళ పంది_క్లూ	|	porcupine.jpg	|	porcupine.wav
+136	|	Animals_3	|	ముళ్ళ పంది 	|	porcupine	|	ముళ్ళ పంది_క్లూ	|	porcupine.jpg	|	porcupine.wav
+137	|	Animals_3	|	చిరుత పులి  	|	puma	|	చిరుత పులి _క్లూ	|	puma.jpg	|	puma.wav
+138	|	Animals_3	|	కుక్క పిల్ల 	|	puppy	|	కుక్క పిల్ల_క్లూ	|	puppy.jpg	|	puppy.wav
+139	|	Animals_3	|	కొండ చిలువ 	|	python	|	కొండ చిలువ_క్లూ	|	python.jpg	|	python.wav
+140	|	Animals_3	|	కోలంకి పిట్ట	|	quail	|	కోలంకి పిట్ట_క్లూ	|	quail.jpg	|	quail.wav
+141	|	Animals_3	|	సీమ కుందేలు 	|	rabbit	|	సీమ కుందేలు_క్లూ	|	rabbit.jpg	|	rabbit.wav
+142	|	Animals_3	|	పొట్టేలు 	|	ram	|	పొట్టేలు_క్లూ	|	ram.jpg	|	ram.wav
+143	|	Animals_3	|	పొట్టేలు	|	ram	|	పొట్టేలు_క్లూ	|	ram.jpg	|	ram.wav
+144	|	Animals_3	|	ఎలుక 	|	rat	|	ఎలుక_క్లూ	|	rat.jpg	|	rat.wav
+145	|	Animals_3	|	గిలక పాము	|	rattle snake	|	గిలక పాము_క్లూ	|	rattle snake.jpg	|	rattle snake.wav
+146	|	Animals_3	|	ఖడ్గ మృగము 	|	rhinoceros	|	ఖడ్గ మృగము_క్లూ	|	rhinoceros.jpg	|	rhinoceros.wav
+147	|	Animals_3	|	నల్లి కండ్ల పాము	|	salamandar	|	నల్లి కండ్ల పాము_క్లూ	|	salamandar.jpg	|	salamandar.wav
+148	|	Animals_3	|	తేలు	|	scorpion	|	తేలు_క్లూ	|	scorpion.jpg	|	scorpion.wav
+149	|	Animals_3	|	నీటి గుర్రము	|	sea horse	|	నీటి గుర్రము_క్లూ	|	sea horse.jpg	|	sea horse.wav
+150	|	Animals_3	|	నీటి సింహము 	|	sea lion	|	నీటి సింహము_క్లూ	|	sea lion.jpg	|	sea lion.wav
+151	|	Animals_4	|	సముద్రపు పక్షి 	|	seagull	|	సముద్రపు పక్షి_క్లూ	|	seagull.jpg	|	seagull.wav
+152	|	Animals_4	|	సొర పొట్టు 	|	shark	|	సొర పొట్టు_క్లూ	|	shark.jpg	|	shark.wav
+153	|	Animals_4	|	గొర్రె 	|	sheep	|	గొర్రె_క్లూ	|	sheep.jpg	|	sheep.wav
+154	|	Animals_4	|	రొయ్య	|	shrimp	|	రొయ్య_క్లూ	|	shrimp.jpg	|	shrimp.wav
+155	|	Animals_4	|	పట్టు పురుగు 	|	silk worm	|	పట్టు పురుగు_క్లూ	|	silk worm.jpg	|	silk worm.wav
+156	|	Animals_4	|	దేవాంగ పిల్లి 	|	sloth	|	దేవాంగ పిల్లి_క్లూ	|	sloth.jpg	|	sloth.wav
+157	|	Animals_4	|	నత్త	|	snail	|	నత్త_క్లూ	|	snail.jpg	|	snail.wav
+158	|	Animals_4	|	పాము 	|	snake	|	పాము_క్లూ	|	snake.jpg	|	snake.wav
+159	|	Animals_4	|	ఉల్లంగి పిట్ట	|	snipe	|	ఉల్లంగి పిట్ట_క్లూ	|	snipe.jpg	|	snipe.wav
+160	|	Animals_4	|	ఆడ పంది 	|	sow	|	ఆడ పంది_క్లూ	|	sow.jpg	|	sow.wav
+161	|	Animals_4	|	పిచ్చుక 	|	sparrow	|	పిచ్చుక_క్లూ	|	sparrow.jpg	|	sparrow.wav
+162	|	Animals_4	|	సాలీడు 	|	spider	|	సాలీడు_క్లూ	|	spider.jpg	|	spider.wav
+163	|	Animals_4	|	తెడ్డు మూతి కొంగ	|	spoonbill	|	తెడ్డు మూతి కొంగ_క్లూ	|	spoonbill.jpg	|	spoonbill.wav
+164	|	Animals_4	|	ఉడుత 	|	squirrel	|	ఉడుత_క్లూ	|	squirrel.jpg	|	squirrel.wav
+165	|	Animals_4	|	జింక 	|	stag	|	జింక_క్లూ	|	stag.jpg	|	stag.wav
+166	|	Animals_4	|	దుప్పి	|	stag	|	దుప్పి_క్లూ	|	stag.jpg	|	stag.wav
+167	|	Animals_4	|	మగ గుర్రము 	|	stallion	|	మగ గుర్రము_క్లూ	|	stallion.jpg	|	stallion.wav
+168	|	Animals_4	|	కొంగ 	|	stork	|	కొంగ_క్లూ	|	stork.jpg	|	stork.wav
+169	|	Animals_4	|	వాన కోయిల	|	swallow	|	వాన కోయిల_క్లూ	|	swallow.jpg	|	swallow.wav
+170	|	Animals_4	|	హంస 	|	swan	|	హంస_క్లూ	|	swan.jpg	|	swan.wav
+171	|	Animals_4	|	పంది	|	swine	|	పంది_క్లూ	|	swine.jpg	|	swine.wav
+172	|	Animals_4	|	కప్పు పిల్ల 	|	tadpole	|	కప్పు పిల్ల_క్లూ	|	tadpole.jpg	|	tadpole.wav
+173	|	Animals_4	|	పులి 	|	tiger	|	పులి_క్లూ	|	tiger.jpg	|	tiger.wav
+174	|	Animals_4	|	గోoడ్రు కప్పు 	|	toad	|	గోoడ్రు కప్పు_క్లూ	|	toad.jpg	|	toad.wav
+175	|	Animals_4	|	తాబేలు 	|	tortoise	|	తాబేలు_క్లూ	|	tortoise.jpg	|	tortoise.wav
+176	|	Animals_4	|	గిన్నె కోడి	|	turkey	|	గిన్నె కోడి_క్లూ	|	turkey.jpg	|	turkey.wav
+177	|	Animals_4	|	కట్ల పాము 	|	viper	|	కట్ల పాము_క్లూ	|	viper.jpg	|	viper.wav
+178	|	Animals_4	|	రాబందు 	|	vulture	|	రాబందు_క్లూ	|	vulture.jpg	|	vulture.wav
+179	|	Animals_4	|	మ౦ద పిచ్చుక	|	wagtail	|	మ౦ద పిచ్చుక_క్లూ	|	wagtail.jpg	|	wagtail.wav
+180	|	Animals_4	|	నీటి ఏనుగు 	|	walrus	|	నీటి ఏనుగు_క్లూ	|	walrus.jpg	|	walrus.wav
+181	|	Animals_4	|	కందిరీగ	|	wasp	|	కందిరీగ_క్లూ	|	wasp.jpg	|	wasp.wav
+182	|	Animals_4	|	గిజిగాడి పిట్ట	|	weaver bird	|	గిజిగాడి పిట్ట_క్లూ	|	weaver bird.jpg	|	weaver bird.wav
+183	|	Animals_4	|	తిమింగలము 	|	whale	|	తిమింగలము_క్లూ	|	whale.jpg	|	whale.wav
+184	|	Animals_4	|	జెర్రి పోతు	|	whip snake	|	జెర్రి పోతు_క్లూ	|	whip snake.jpg	|	whip snake.wav
+185	|	Animals_4	|	తెల్ల పులి	|	white tiger	|	తెల్ల పులి_క్లూ	|	white tiger.jpg	|	white tiger.wav
+186	|	Animals_4	|	అడవి పంది	|	wild boar	|	అడవి పంది_క్లూ	|	wild boar.jpg	|	wild boar.wav
+187	|	Animals_4	|	తోడేలు	|	wolf	|	తోడేలు_క్లూ	|	wolf.jpg	|	wolf.wav
+188	|	Animals_4	|	లకుముకి పిట్ట	|	woodpecker	|	లకుముకి పిట్ట_క్లూ	|	woodpecker.jpg	|	woodpecker.wav
+189	|	Animals_4	|	జడల బర్రె 	|	yak	|	జడల బర్రె_క్లూ	|	yak.jpg	|	yak.wav
+190	|	Animals_4	|	కంచర గాడిద 	|	zebra	|	కంచర గాడిద_క్లూ	|	zebra.jpg	|	zebra.wav
+191	|	US Presidents	|	జాచేరీ టేలర్ 	|	Zachary Taylor	|		|		|	
+192	|	US Presidents	|	వుడ్రో విల్సన్ 	|	Woodrow Wilson	|		|		|	
+193	|	US Presidents	|	విలియం మెక్కిన్లీ 	|	William McKinley	|		|		|	
+194	|	US Presidents	|	విలియం హోవార్డ్ టఫ్ట్ 	|	William Howard Taft	|		|		|	
+195	|	US Presidents	|	విలియం హెన్రీ హారిసన్ 	|	William Henry Harrison	|		|		|	
+196	|	US Presidents	|	వారెన్ G. హార్డింగ్ 	|	Warren G. Harding	|		|		|	
+197	|	US Presidents	|	యులిసస్ S. గ్రాంట్ 	|	Ulysses S. Grant	|		|		|	
+198	|	US Presidents	|	థామస్ జెఫెర్సన్ 	|	Thomas Jefferson	|		|		|	
+199	|	US Presidents	|	థియోడర్ రూజ్వెల్ట్ 	|	Theodore Roosevelt	|		|		|	
+200	|	US Presidents	|	రూథర్ఫోర్డ్ B. హాయెస్ 	|	Rutherford B. Hayes	|		|		|	
+201	|	US Presidents	|	రోనాల్డ్ రీగన్ 	|	Ronald Reagan	|		|		|	
+202	|	US Presidents	|	రిచర్డ్ M. నిక్సన్ 	|	Richard M. Nixon	|		|		|	
+203	|	US Presidents	|	మిల్లర్డ్ ఫిల్మోర్ 	|	Millard Fillmore	|		|		|	
+204	|	US Presidents	|	మార్టిన్ వన్ బ్యురెన్ 	|	Martin Van Buren 	|		|		|	
+205	|	US Presidents	|	లిండన్ B. జాన్సన్ 	|	Lyndon B. Johnson	|		|		|	
+206	|	US Presidents	|	జాన్ టైలర్ 	|	John Tyler	|		|		|	
+207	|	US Presidents	|	జాన్ క్విన్సీ ఆడమ్స్ 	|	John Quincy Adams	|		|		|	
+208	|	US Presidents	|	జాన్ F. కెన్నెడీ 	|	John F. Kennedy	|		|		|	
+209	|	US Presidents	|	జాన్ ఆడమ్స్ 	|	John Adams	|		|		|	
+210	|	US Presidents	|	జిమ్మీ కార్టర్ 	|	Jimmy Carter	|		|		|	
+211	|	US Presidents	|	జేమ్స్ మన్రో 	|	James Monroe	|		|		|	
+212	|	US Presidents	|	జేమ్స్ మాడిసన్ 	|	James Madison	|		|		|	
+213	|	US Presidents	|	జేమ్స్ K. పోల్క్ 	|	James K. Polk	|		|		|	
+214	|	US Presidents	|	జేమ్స్ బుకానన్ 	|	James Buchanan	|		|		|	
+215	|	US Presidents	|	జేమ్స్ A. గార్ఫీల్డ్ 	|	James A. Garfield	|		|		|	
+216	|	US Presidents	|	హెర్బర్ట్ హూవేర్ 	|	Herbert Hoover	|		|		|	
+217	|	US Presidents	|	హారీ S. ట్రూమాన్ 	|	Harry S. Truman	|		|		|	
+218	|	US Presidents	|	గ్రోవర్ క్లీవ్లాండ్ 	|	Grover Cleveland	|		|		|	
+219	|	US Presidents	|	గ్రోవర్ క్లీవ్లాండ్ 	|	Grover Cleveland	|		|		|	
+220	|	US Presidents	|	గెరాల్డ్ ఫోర్డ్ 	|	Gerald Ford	|		|		|	
+221	|	US Presidents	|	జార్జ్ వాషింగ్టన్ 	|	George Washington	|		|		|	
+222	|	US Presidents	|	జార్జ్ W. బుష్ 	|	George W. Bush	|		|		|	
+223	|	US Presidents	|	జార్జ్ బుష్ 	|	George Bush	|		|		|	
+224	|	US Presidents	|	ఫ్రాంక్లిన్ రూజ్వెల్ట్ 	|	Franklin Roosevelt	|		|		|	
+225	|	US Presidents	|	ఫ్రాంక్లిన్ పియర్స్ 	|	Franklin Pierce	|		|		|	
+226	|	US Presidents	|	డ్వైట్ D. ఈసెన్హోవర్ 	|	Dwight D. Eisenhower	|		|		|	
+227	|	US Presidents	|	చెస్టర్ A. ఆర్థర్ 	|	Chester A. Arthur	|		|		|	
+228	|	US Presidents	|	కాల్విన్ కూలిడ్జ్ 	|	Calvin Coolidge	|		|		|	
+229	|	US Presidents	|	బిల్ క్లింటన్ 	|	Bill Clinton	|		|		|	
+230	|	US Presidents	|	బెంజమిన్ హారిసన్ 	|	Benjamin Harrison	|		|		|	
+231	|	US Presidents	|	బరాక్ ఒబామా	|	Barack Obama	|		|		|	
+232	|	US Presidents	|	ఆండ్రూ జాన్సన్ 	|	Andrew Johnson	|		|		|	
+233	|	US Presidents	|	ఆండ్రూ జాక్సన్ 	|	Andrew Jackson	|		|		|	
+234	|	US Presidents	|	అబ్రహం లింకన్ 	|	Abraham Lincoln	|		|		|	

@@ -1,0 +1,378 @@
+package Fillin;
+
+import javax.swing.*;
+import javax.swing.UIManager.LookAndFeelInfo;
+import javax.swing.border.LineBorder;
+
+import core.Config;
+import core.history.PuzzleCollection;
+import core.history.PuzzleGeneratorConfig;
+import core.history.PuzzleHistoryCollection;
+import core.history.PuzzlePicker;
+import core.ui.JTabLabel;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.io.IOException;
+import java.net.BindException;
+import java.net.InetAddress;
+import java.net.MalformedURLException;
+import java.net.ServerSocket;
+import java.net.URISyntaxException;
+import java.net.URL;
+
+/**
+ * Applications primary class and thread. Centralizes GUI objects
+ *
+ */
+public class GameGui {
+
+	JFrame frame;	
+	private JPanel mainPanel;
+	private ConfigPanel configPanel;
+	JTabbedPane tabbedPane; 
+	
+	private String tabcss = "margin:0; padding:10px; width:50px;height:30px;border-radius:3px; text-align:center;border:none;";
+	private String html1 = "<html><body style = '"+ tabcss +"'>";
+    private String html2 = "</body></html>";
+    
+    private int prev_pane_ct = 0;
+	
+	@SuppressWarnings("unused")
+	private static ServerSocket socket;
+	
+	/** Randomly chosen, but static, high socket number */
+    public static final int SINGLE_INSTANCE_NETWORK_SOCKET = 44331;
+	     
+	
+	/**
+	 * Create GUI
+	 * @author Kevin Nelson
+	 * @throws URISyntaxException 
+	 * @throws MalformedURLException 
+	 */
+    public GameGui() throws MalformedURLException, URISyntaxException {
+    	
+    	URL url = GameGui.class.getProtectionDomain().getCodeSource().getLocation();
+    	Config.setAppPath(url.getPath());
+    	
+    	PuzzleCollection pc = new PuzzleCollection();
+    	PuzzleHistoryCollection gp = new PuzzleHistoryCollection();
+		String gameId = "0001";
+				
+		if(gp.getSize() > 0) {
+			gameId = gp.getLastPlayedID();
+			gameId = pc.getNextID(gameId);
+		}		
+		
+		PuzzlePicker pp1 = new PuzzlePicker(gameId);
+		pc.setCurrentId(pp1.getId());
+    	Config.setPuzzleCollection(pc);
+    	Config.setPuzzleHistoryCollection(gp);
+    	    	
+    	initialize();
+    }
+
+    /**
+     * Main method to initiate the game
+     * @author Kevin Nelson
+     * @author sean.ford
+     * Some content taken from http://docs.oracle.com/
+     * 		javase/tutorial/displayCode.html?code=http://docs.oracle.com/javase/tutorial/uiswing/examples/
+     * 		misc/SplashDemoProject/src/misc/SplashDemo.java
+     * Some content taken from http://stackoverflow.com/questions/
+     * 		920386/how-to-allow-running-only-one-instance-of-a-java-program-at-a-time
+     * 
+     * @param args
+     * @throws URISyntaxException 
+     * @throws MalformedURLException 
+     * 
+     */
+    public static void main(String [] args) throws MalformedURLException, URISyntaxException {
+    	//Check if an instance of the application is running
+    	checkIfRunning();
+
+    	EventQueue.invokeLater(new Runnable() {
+    		public void run() {
+    			try {	
+    				//Display application splash screen
+    				// Add the following line to the run/debug configurations into the VM arguments to display the splashscreen in eclipse
+    				// -splash:src/core/images/splash.jpg
+    		    	displaySplash();
+    		    	//Display application window
+    		    	try {
+    				    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+    				        if ("Nimbus".equals(info.getName())) {
+    				            UIManager.setLookAndFeel(info.getClassName());
+    				            break;
+    				        }
+    				    }
+    				} catch (Exception e) {			
+    					e.printStackTrace();		    
+    				}    		    	
+    		    	GameGui window = new GameGui();
+    				window.frame.setVisible(true);
+    				window.frame.toFront();
+    			} catch (Exception e) {
+    				e.printStackTrace();
+    			}
+    		}
+    	});
+    }
+
+    /**
+     * Initializes the splashscreen. Requires the following line in the Eclipse Run Configurations.. Arguments.. VM Arguments
+     * -splash:src/core/images/splash.jpg 
+     * Once this is compiled into a jar the splashmanifest.mf will handle the splash screen behavior.
+     * @author http://docs.oracle.com/
+     * 		javase/tutorial/displayCode.html?code=http://docs.oracle.com/javase/tutorial/uiswing/examples/     
+     */ 
+    private static void displaySplash() {
+
+    	final SplashScreen splash = SplashScreen.getSplashScreen();			
+    	if (splash == null) {
+    		System.err.println("SplashScreen.getSplashScreen() returned null");
+    		return;
+    	}
+    	Graphics2D g = splash.createGraphics();
+    	if (g == null) {
+    		System.err.println("graphic2d is null");
+    		return;
+    	}
+    	for(int i=0; i<100; i++) {
+    		renderSplashFrame(g, i);
+    		splash.update();
+    		try {
+    			Thread.sleep(90);
+    		}
+    		catch(InterruptedException e) {
+    			e.printStackTrace();
+    		}
+    	}
+    	splash.close();
+    }
+
+    /**
+     * This method opens a socket which is held and should another instance attempt to open the socket is in use
+     * and the attempted new instance fails.
+     * @author http://stackoverflow.com/questions/
+     * 		920386/how-to-allow-running-only-one-instance-of-a-java-program-at-a-time     
+     */
+    private static void checkIfRunning() {
+    	try {
+    		//Bind to localhost adapter with a zero connection queue     		
+			socket = new ServerSocket(SINGLE_INSTANCE_NETWORK_SOCKET,0,InetAddress.getByAddress(new byte[] {127,0,0,1}));
+    	}
+    	catch (BindException e) {
+    		System.err.println("Application is currently already running.");
+    		System.exit(1);
+    	}
+    	catch (IOException e) {
+    		System.err.println("Unexpected error.");
+    		e.printStackTrace();
+    		System.exit(2);
+    	}
+    }
+
+    /**
+     * Used for rendering content in the splash screen such as progress bar and loading messages
+     * @author http://docs.oracle.com/
+     * 		javase/tutorial/displayCode.html?code=http://docs.oracle.com/javase/tutorial/uiswing/examples/
+     * 		misc/SplashDemoProject/src/misc/SplashDemo.java
+     * @param g
+     * @param frame
+     */
+    static void renderSplashFrame(Graphics2D g, int frame) {
+    	final String[] comps = {"Dictionary", "Puzzles", "Solutions"};
+    	String mode = Config.MODE == Config.USER_MODE.ADMIN ? "Admin" : "User";
+    	g.setComposite(AlphaComposite.Clear);
+    	g.fillRect(120,140,400,400);
+    	g.setPaintMode();
+    	
+    	g.setColor(Color.LIGHT_GRAY);    	
+    	g.setFont(new Font("Verdona", Font.BOLD, 14));
+    	g.drawString(mode + " Mode", 334, 166);
+    	
+    	g.setColor(Color.BLACK);
+    	g.drawString(mode + " Mode", 335, 165);
+    	g.setFont(new Font("Verdona", Font.BOLD, 16));
+    	g.drawString("Loading "+comps[(frame/34)%3]+"...", 235, 195);	 
+    }
+
+    /**
+	 * Initializes the visual components and sets default values.
+	 */
+	private void initialize() {	
+		String imageicon = "core/images/appIcon.png";
+		ImageIcon img = new ImageIcon(getClass().getClassLoader().getResource(imageicon));		
+
+		// Create WordGame
+		Config.setCurrent_config(new PuzzleGeneratorConfig());
+		
+//		ToolTipManager.sharedInstance().setInitialDelay(0);
+//      ToolTipManager.sharedInstance().setDismissDelay(1000);
+		ToolTipManager.sharedInstance().setEnabled(false);		
+
+		// Set frame information
+		frame = new JFrame(Config.APP_TITLE);		
+		frame.setIconImage(img.getImage());
+		frame.setFont(Config.ENGLISHFONT);
+		frame.setPreferredSize(new Dimension(1200, 800));
+		frame.setMinimumSize(new Dimension(200,300));
+		frame.setBounds(100, 100, 1200, 800);
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		// Create main WordGameGui panel
+		mainPanel = new JPanel(new BorderLayout());
+
+		// Create the tab pages			    		
+        tabbedPane = new JTabbedPane(JTabbedPane.LEFT);
+        tabbedPane.setBorder(new LineBorder(Color.DARK_GRAY));
+        
+        ImageIcon homeIcon = new ImageIcon(new ImageIcon(getClass().getClassLoader().getResource("core/images/home.png"))        
+    		.getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH));		
+        JLabel lblWelcome = new JLabel(html1 + "HOME" + html2);
+        lblWelcome.setHorizontalTextPosition(JLabel.TRAILING);        
+        lblWelcome.setIcon(homeIcon);
+                
+        // Create tabbed pane for WordGameGui
+        WelcomePanel welcomePanel = new WelcomePanel(this);        
+        tabbedPane.addTab(null, welcomePanel);
+        JTabLabel homeComponent = new JTabLabel(lblWelcome);        
+        tabbedPane.setTabComponentAt(0, homeComponent);
+                
+        if(Config.MODE == Config.USER_MODE.ADMIN) {
+        	
+        	ImageIcon cfgIcon = new ImageIcon(new ImageIcon(getClass().getClassLoader().getResource("core/images/settings.png"))
+        		.getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH));		
+        	JLabel lblConfig = new JLabel(html1 + "CONFIG" + html2);
+        	lblConfig.setHorizontalTextPosition(JLabel.TRAILING);        
+        	lblConfig.setIcon(cfgIcon);
+
+        	configPanel = new ConfigPanel(this);    		
+        	JScrollPane configScrollPane = new JScrollPane(configPanel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        	tabbedPane.addTab(null, configScrollPane);		
+        	JTabLabel configComponent = new JTabLabel(lblConfig);
+        	tabbedPane.setTabComponentAt(1, configComponent);
+        }
+        
+		mainPanel.add(tabbedPane, BorderLayout.CENTER);
+				
+		frame.getContentPane().add(mainPanel);
+		
+	}
+	
+	/**
+	 * The GUI interface for initializing multiple puzzle preview tabs and numbering them until they are either
+	 * discarded, saved, or played.
+	 * @author sean.ford
+	 */
+	protected void createNewPreviewTab(PreviewPanel prevPanel, int wordCt) {
+
+		ActionListener actionListener = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JButton button = (JButton)e.getSource();
+				for(int i = 0; i < tabbedPane.getTabCount(); i++) {
+					if(SwingUtilities.isDescendingFrom(button, tabbedPane.getTabComponentAt(i))) {
+						tabbedPane.remove(i);
+						break;
+					}
+				}
+			}
+		};
+
+		prev_pane_ct++;
+		String wordListCt = new String("<br>(" + wordCt +" Words)");
+		
+		String lang = Config.getSelected_Language().getName();
+		JLabel lblPreview = new JLabel(html1 + lang + prev_pane_ct + wordListCt +html2);
+		lblPreview.setBounds(10, 0, 150, 40);
+		lblPreview.setHorizontalTextPosition(JLabel.TRAILING);
+		JTabLabel previewComponent = new JTabLabel(lblPreview, actionListener);
+
+		int index = tabbedPane.getTabCount();
+		tabbedPane.addTab(null, prevPanel);
+		tabbedPane.setTabComponentAt(index, previewComponent);	
+		
+	}
+	
+	/**
+	 * The GUI interface for initializing multiple puzzle preview tabs and numbering them until they are either
+	 * discarded, saved, or played.
+	 * @author sean.ford
+	 */
+	protected void createNewPlayTab(PlayPanel playPanel, String tabName) {
+
+		ActionListener actionListener = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JButton button = (JButton)e.getSource();
+				for(int i = 0; i < tabbedPane.getTabCount(); i++) {
+					if(SwingUtilities.isDescendingFrom(button, tabbedPane.getTabComponentAt(i))) {
+						tabbedPane.remove(i);
+						break;
+					}
+				}
+			}
+		};
+		if(tabName.equals("new")) {
+			tabName = "Play" + prev_pane_ct;
+		}
+		JLabel lblPlay = new JLabel(html1 + tabName + html2);
+		lblPlay.setBounds(10, 0, 65, 40);
+		lblPlay.setHorizontalTextPosition(JLabel.TRAILING);
+		JTabLabel playComponent = new JTabLabel(lblPlay, actionListener);
+
+		int index = tabbedPane.getTabCount();
+		tabbedPane.addTab(null, playPanel);
+		tabbedPane.setTabComponentAt(index, playComponent);		
+		tabbedPane.setSelectedIndex(index);
+	}
+	
+	/**
+	 * The GUI interface for a help tab
+	 * @author sean.ford
+	 */
+	protected void createHelpTab() {
+		if(!Config.isHelpIsShown()) {
+			ActionListener actionListener = new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					JButton button = (JButton)e.getSource();
+					for(int i = 0; i < tabbedPane.getTabCount(); i++) {
+						if(SwingUtilities.isDescendingFrom(button, tabbedPane.getTabComponentAt(i))) {
+							tabbedPane.remove(i);
+							Config.setHelpIsShown(false);
+							break;
+						}
+					}
+				}
+			};
+			ImageIcon helpIcon = new ImageIcon(new ImageIcon(getClass().getClassLoader().getResource("core/images/help.png"))        
+			.getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH));		
+			JLabel lblHelp = new JLabel(html1 + "HELP" + html2);
+			lblHelp.setHorizontalTextPosition(JLabel.TRAILING);
+			lblHelp.setIcon(helpIcon);
+
+			// Create tabbed pane for WordGameGui
+			HelpPanel helpPanel = new HelpPanel();
+			int index = tabbedPane.getTabCount();
+			tabbedPane.addTab(null, helpPanel);
+			JTabLabel helpComponent = new JTabLabel(lblHelp, actionListener);			
+			tabbedPane.setTabComponentAt(index, helpComponent);
+			Config.setHelpIsShown(true);
+			tabbedPane.setSelectedIndex(index);
+		}
+	}
+	
+	/**
+	 * Set the glasspane layer with content which floats over the top of the gui indicating some activity is occuring.
+	 * @param glassPane
+	 */
+	public void setGlassPane(Component glassPane) {
+		frame.setGlassPane(glassPane);
+	}
+		
+}
